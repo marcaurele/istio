@@ -195,6 +195,9 @@ func validateCIDR(path util.Path, val interface{}) util.Errors {
 	return util.NewErrs(err)
 }
 
+//func validateMinReplicas()
+//func validateMinAvailable()
+
 func printError(err error) {
 	if err == nil {
 		scope.Debug("OK")

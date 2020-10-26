@@ -12,7 +12,11 @@ metadata:
     operator.istio.io/component: "Pilot"
 spec:
   maxReplicas: {{ .Values.pilot.autoscaleMax }}
+{{- if .Values.global.defaultPodDisruptionBudget.enabled }}
+  minReplicas: 2
+{{- else }}
   minReplicas: {{ .Values.pilot.autoscaleMin }}
+{{- end }}
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
